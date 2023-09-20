@@ -27,6 +27,9 @@ module.exports = {
       //   url: RPC_URL_Alchemy_MAINNET,
       // },
     },
+    localhost : {
+      chainId: 31337,
+    },
     sepolia: {
       url: RPC_URL_Alchemy_SEPOLIA,
       accounts: [Private_Key],

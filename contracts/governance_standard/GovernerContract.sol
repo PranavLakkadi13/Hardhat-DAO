@@ -8,6 +8,14 @@ import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFractio
 import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorSettings.sol";
 
+
+/**
+ * @title L Pranav Reddy 
+ * @author Governor Contract 
+ * @notice This contract contains all the logic for the implementation of governance it has all the 
+ *          voting code and the voting logic to implement 
+ */
+
 contract GovernorContract is
   Governor,
   GovernorSettings,
