@@ -21,8 +21,10 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
+      blockGasLimit: 80000000,
       chainId: 31337,
       blockConfirmations: 1,
+      allowUnlimitedContractSize: true,
       // forking: {
       //   url: RPC_URL_Alchemy_MAINNET,
       // },

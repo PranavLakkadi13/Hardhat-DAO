@@ -16,7 +16,8 @@ module.exports = async ({getNamedAccounts, deployments}) => {
         waitConfirmations: network.config.blockConfirmations || 1,
     });
 
-    log("The Governance token has been deployed........");
+    log("The Timelock token has been deployed........");
     log(`The token address is ${TimeLock.address}`);
+    log("----------------------------------------------------------------");
     log("----------------------------------------------------------------");
 }
