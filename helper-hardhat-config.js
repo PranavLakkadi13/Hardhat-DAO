@@ -8,7 +8,7 @@ const { ethers } = require("hardhat");
 
   const Quorum_Percentage = 4;
 
-  const addressZero = ethers.addressZero;
+  const addressZero = ethers.constants.AddressZero;
   
   
   module.exports = {

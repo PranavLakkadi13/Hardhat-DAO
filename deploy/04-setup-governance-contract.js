@@ -1,4 +1,5 @@
 const {ethers } = require("hardhat");
+const {addressZero} = require("../helper-hardhat-config");
 
 module.exports = async ({getNamedAccounts,deployments}) => {
     const {deploy,log,get} = deployments;
@@ -18,5 +19,18 @@ module.exports = async ({getNamedAccounts,deployments}) => {
     const proposertx = await timeLock.grantRole(PROPOSER_ROLE,governor.address);
     await proposertx.wait(1);
 
-    
+    // everyone can execute the successful passed proposal 
+    const executortx = await timeLock.grantRole(EXECUTOR_ROLE,addressZero);
+    await executortx.wait(1);
+
+    // Now we want to revoke role from the deployer since the above steps were done by an admin->deployer
+    const revoketx = await timeLock.revokeRole(TIMELOCK_ADMIN_ROLE, deployer);
+    await revoketx.wait(1);
+
+    /**
+     * Now that we have revoked access to the deployer as the role of the admin 
+     * we can say the Timelock contract can execute proposals only after governance
+     * no entity controls the contract and only the governance decides the outcome 
+     */
+
 }
