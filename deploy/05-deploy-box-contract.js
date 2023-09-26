@@ -31,5 +31,5 @@ module.exports = async ({getNamedAccounts, deployments}) => {
     const boxContract = await ethers.getContractAt("Box", box.address);
     const transfertx = await boxContract.transferOwnership(timeLock.address);
     await transfertx.wait(1);
-    log("Successfully transferred the ownership to a governance contract!!!!...")
+    log("Successfully transferred the ownership to a governance contract (TimeLock contract)!!!!...")
 }
