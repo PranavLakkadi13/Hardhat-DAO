@@ -21,7 +21,7 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      blockGasLimit: 80000000,
+      blockGasLimit: 800000000,
       chainId: 31337,
       blockConfirmations: 1,
       allowUnlimitedContractSize: true,
@@ -30,7 +30,10 @@ module.exports = {
       // },
     },
     localhost : {
+      blockGasLimit: 800000000,
       chainId: 31337,
+      blockConfirmations: 1,
+      allowUnlimitedContractSize: true,
     },
     sepolia: {
       url: RPC_URL_Alchemy_SEPOLIA,
