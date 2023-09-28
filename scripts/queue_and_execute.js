@@ -1,11 +1,12 @@
 const { ethers,network } = require("hardhat");
 const {Func, New_Store_Value, Proposal_Description, development_Chains, min_delay} = require("../helper-hardhat-config");
 const {moveBlocks} = require("../utils/move-blocks");
-const {moveTime} = require("../utils/move-time");
+const {time} = require("@nomicfoundation/hardhat-network-helpers");
 
 async function queueAndExecute() {
   const args = [New_Store_Value];
   const box = await ethers.getContract("Box");
+  const timelock = await ethers.getContract("TimeLock");
   const encodedFunctionCall = box.interface.encodeFunctionData(Func,args);
   const descriptionHash = ethers.utils.keccak256(ethers.utils.toUtf8Bytes(Proposal_Description));
 
@@ -21,10 +22,10 @@ async function queueAndExecute() {
   
   // Here we want to move blocks as well as timesnap 
   // Therefore we need to move the time 
-  if (development_Chains.includes[network.name]){
-    await moveTime(min_delay + 100);
-    await moveBlocks(10);
-  }
+  if (development_Chains.includes(network.name)){
+    await time.increase(min_delay + 10);
+    await moveBlocks(1);
+}
 
   console.log("Executing.......");
 
