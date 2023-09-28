@@ -21,7 +21,8 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      blockGasLimit: 800000000,
+      blockGasLimit: 8000000000,
+      gas: 2100000,
       chainId: 31337,
       blockConfirmations: 1,
       allowUnlimitedContractSize: true,
@@ -30,7 +31,8 @@ module.exports = {
       // },
     },
     localhost : {
-      blockGasLimit: 800000000,
+      gas: 2100000,
+      blockGasLimit: 8000000000,
       chainId: 31337,
       blockConfirmations: 1,
       allowUnlimitedContractSize: true,
